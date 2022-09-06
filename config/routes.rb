@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'static_pages#index'
 
-  namespace :api do  
+  namespace :api do
     resources :users, only: [:create]
 
     get    'tasks'                    => 'tasks#index'
@@ -14,5 +14,4 @@ Rails.application.routes.draw do
   end
 
   get '*path' => redirect('/')
-  
 end

@@ -6,7 +6,8 @@ module Api
       user = User.find_by(id: params[:api_key])
       @task = user.tasks.find_by(id: params[:id])
 
-      return render 'not_found', status: :not_found if not @task
+      return render 'not_found', status: :not_found unless @task
+
       render 'show', status: :ok
     end
 
@@ -20,7 +21,8 @@ module Api
       user = User.find_by(id: params[:api_key])
       @task = user.tasks.new(task_params)
 
-      return render 'bad_request', status: :bad_request if not @task.save
+      return render 'bad_request', status: :bad_request unless @task.save
+
       render 'show', status: :ok
     end
 
@@ -28,8 +30,9 @@ module Api
       user = User.find_by(id: params[:api_key])
       @task = user.tasks.find_by(id: params[:id])
 
-      return render 'not_found', status: :not_found if not @task
-      return render 'bad_request', status: :bad_request if not @task.destroy
+      return render 'not_found', status: :not_found unless @task
+      return render 'bad_request', status: :bad_request unless @task.destroy
+
       render json: { success: true }, status: :ok
     end
 
@@ -37,8 +40,9 @@ module Api
       user = User.find_by(id: params[:api_key])
       @task = user.tasks.find_by(id: params[:id])
 
-      return render 'not_found', status: :not_found if not @task
-      return render 'bad_request', status: :bad_request if not @task.update(task_params)
+      return render 'not_found', status: :not_found unless @task
+      return render 'bad_request', status: :bad_request unless @task.update(task_params)
+
       render 'show', status: :ok
     end
 
@@ -46,8 +50,9 @@ module Api
       user = User.find_by(id: params[:api_key])
       @task = user.tasks.find_by(id: params[:id])
 
-      return render 'not_found', status: :not_found if not @task
-      return render 'bad_request', status: :bad_request if not @task.update(completed: true)
+      return render 'not_found', status: :not_found unless @task
+      return render 'bad_request', status: :bad_request unless @task.update(completed: true)
+
       render 'show', status: :ok
     end
 
@@ -55,8 +60,9 @@ module Api
       user = User.find_by(id: params[:api_key])
       @task = user.tasks.find_by(id: params[:id])
 
-      return render 'not_found', status: :not_found if not @task
-      return render 'bad_request', status: :bad_request if not @task.update(completed: false)
+      return render 'not_found', status: :not_found unless @task
+      return render 'bad_request', status: :bad_request unless @task.update(completed: false)
+
       render 'show', status: :ok
     end
 
@@ -68,16 +74,18 @@ module Api
 
     def validate_user
       user = User.find_by(id: params[:api_key])
-      return render json: {
-        status: '401',
-        title:  'Unauthorized User',
-        detail: 'User is not found.'
-      }, status: :unauthorized unless user
+      unless user
+        return render json: {
+          status: '401',
+          title: 'Unauthorized User',
+          detail: 'User is not found.'
+        }, status: :unauthorized
+      end
 
       if user
-        return true
+        true
       else
-        return false
+        false
       end
     end
   end
