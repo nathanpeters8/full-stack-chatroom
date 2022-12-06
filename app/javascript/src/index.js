@@ -3,7 +3,7 @@ import $ from 'jquery';
 import {
   indexTasks,
   postTask,
-} from "./requests.js";
+} from "../lib/requests.js";
 
 indexTasks(function (response) {
   var htmlString = response.tasks.map(function(task) {
