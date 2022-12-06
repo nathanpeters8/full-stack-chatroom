@@ -4,5 +4,6 @@ json.chats do
     json.name       chat.name
     json.message    chat.message
     json.created_at chat.created_at
+    json.ago        time_ago_in_words(chat.created_at)
   end
 end

@@ -14,7 +14,7 @@ $(document).ready(function () {
             <div class="flex-1 space-y-1">
               <div class="flex items-center justify-between">
                 <h3 class="text-sm font-medium">${chat.name}</h3>
-                <p class="text-sm text-gray-500">1h</p>
+                <p class="text-sm text-gray-500">${chat.ago}</p>
               </div>
               <p class="text-sm text-gray-500">${chat.message}</p>
             </div>

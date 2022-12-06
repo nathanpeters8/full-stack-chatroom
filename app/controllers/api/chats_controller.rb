@@ -1,7 +1,7 @@
 module Api
   class ChatsController < ApplicationController
     def index
-      @chats = Chat.order(created_at: :desc)
+      @chats = Chat.where('created_at > ?', 60.minutes.ago).order(created_at: :desc)
       render 'index', status: :ok
     end
 
