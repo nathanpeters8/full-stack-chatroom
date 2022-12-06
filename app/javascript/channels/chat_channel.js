@@ -23,9 +23,23 @@ consumer.subscriptions.create("ChatChannel", {
 
     indexChats(function (response) {
       var htmlString = response.chats.map(function(chat) {
-        return "<div class='col-12 mb-3 p-2 border rounded task' data-id='" + chat.id + "'> \
-          " + chat.message + "\
-          </div>";
+        // get a random unsplash image
+        // https://source.unsplash.com/random/256x256
+        return `
+          <li class="py-4">
+            <div class="flex space-x-3">
+              <img class="h-6 w-6 rounded-full" src="https://source.unsplash.com/random/64x64" alt="">
+
+              <div class="flex-1 space-y-1">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-sm font-medium">Lindsay Walton</h3>
+                  <p class="text-sm text-gray-500">1h</p>
+                </div>
+                <p class="text-sm text-gray-500">${chat.message}</p>
+              </div>
+            </div>
+          </li>
+        `;
       });
 
       $("#chats").html(htmlString);

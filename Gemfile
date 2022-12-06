@@ -79,3 +79,5 @@ group :production do
   # Use pg as the database for Active Record
   gem 'pg', '~> 1.4.3'
 end
+
+gem "tailwindcss-rails", "~> 2.0"
