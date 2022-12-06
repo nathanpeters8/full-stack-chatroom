@@ -17,13 +17,14 @@ export var indexChats = function (successCB, errorCB) {
   $.ajax(request);
 };
 
-export var postChat = function (message, successCB, errorCB) {
+export var postChat = function (message, name, successCB, errorCB) {
   var request = {
     type: 'POST',
     url: 'api/chats',
     data: {
       chat: {
-        message: message
+        message: message,
+        name: name,
       }
     },
     success: successCB,
