@@ -28,8 +28,6 @@ consumer.subscriptions.create("ChatChannel", {
         return `
           <li class="py-4">
             <div class="flex space-x-3">
-              <img class="h-6 w-6 rounded-full" src="https://source.unsplash.com/random/64x64" alt="">
-
               <div class="flex-1 space-y-1">
                 <div class="flex items-center justify-between">
                   <h3 class="text-sm font-medium">Lindsay Walton</h3>
