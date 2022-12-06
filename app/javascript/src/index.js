@@ -1,28 +1,28 @@
 import $ from 'jquery';
 
 import {
-  indexTasks,
-  postTask,
+  indexChats,
+  postChat,
 } from "../lib/requests.js";
 
 $(document).ready(function () {
-  indexTasks(function (response) {
-    var htmlString = response.tasks.map(function(task) {
-      return "<div class='col-12 mb-3 p-2 border rounded task' data-id='" + task.id + "'> \
-        " + task.content + "\
+  indexChats(function (response) {
+    var htmlString = response.chats.map(function(chat) {
+      return "<div class='col-12 mb-3 p-2 border rounded task' data-id='" + chat.id + "'> \
+        " + chat.message + "\
         </div>";
     });
 
-    $("#tasks").html(htmlString);
+    $("#chats").html(htmlString);
   });
 
-  $("#new-task-form").on("submit", function (event) {
+  $("#new-chat-form").on("submit", function (event) {
     event.preventDefault();
 
-    var content = $("#task-value").val();
+    var content = $("#chat-value").val();
 
     console.log("content", content);
 
-    postTask(content);
+    postChat(content);
   });
 });

@@ -6,10 +6,10 @@ $.ajaxSetup({
   }
 });
 
-export var indexTasks = function (successCB, errorCB) {
+export var indexChats = function (successCB, errorCB) {
   var request = {
     type: 'GET',
-    url: 'api/tasks',
+    url: 'api/chats',
     success: successCB,
     error: errorCB
   }
@@ -17,13 +17,13 @@ export var indexTasks = function (successCB, errorCB) {
   $.ajax(request);
 };
 
-export var postTask = function (content, successCB, errorCB) {
+export var postChat = function (message, successCB, errorCB) {
   var request = {
     type: 'POST',
-    url: 'api/tasks',
+    url: 'api/chats',
     data: {
-      task: {
-        content: content
+      chat: {
+        message: message
       }
     },
     success: successCB,

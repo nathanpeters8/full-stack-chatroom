@@ -1,6 +1,6 @@
-class TaskChannel < ApplicationCable::Channel
+class ChatChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "task_homepage"
+    stream_from "chat_homepage"
   end
 
   def unsubscribed

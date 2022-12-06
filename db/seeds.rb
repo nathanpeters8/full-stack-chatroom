@@ -6,5 +6,5 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Task.create(content: '1st task', due: DateTime.now)
-Task.create(content: '2nd task', due: DateTime.now)
+Chat.create(message: 'Hello', name: 'Harry')
+Chat.create(message: 'World!', name: 'Hermione')
