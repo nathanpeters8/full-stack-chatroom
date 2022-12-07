@@ -37,8 +37,6 @@ gem 'aws-sdk-s3', '~> 1.114'
 gem 'webrick', '~> 1.7'
 # Mail gem
 gem 'mail', '>= 2.8.0.rc1'
-# Redis
-gem 'redis', '~> 4.8'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
